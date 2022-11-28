@@ -1,3 +1,4 @@
+const { resolve } = require("path");
 const { mainModule } = require("process");
 
 if (typeof window !== 'undefined') {
@@ -378,64 +379,89 @@ let numarray=[2,3,4,5,6,7,8,9,0]
 // })
 
 
-async function ok(){
+// async function ok(){
 
-  let p1= new  Promise((resolve, reject) => {
-    setTimeout(() => {
-      console.log("The value 1  : >")
-      resolve(true)
-    }, 1000);
+//   let p1= new  Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       console.log("The value 1  : >")
+//       resolve(true)
+//     }, 1000);
   
-  })
+//   })
   
-  let p2= new  Promise((resolve, reject) => {
-    setTimeout(() => {
-      console.log("The value 2 : >")
-      resolve(true)
-    }, 2000)
+//   let p2= new  Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       console.log("The value 2 : >")
+//       resolve(true)
+//     }, 2000)
 
-})
+// })
 
-  let aa= await p1
-  let bb=await p2
-}
+//   let aa= await p1
+//   let bb=await p2
+// }
 
-async function lollllll(){
-  setTimeout(() => {
+// async function lollllll(){
+//   setTimeout(() => {
     
-    console.log("iiiiiiii")
-  }, 5000);
-}
+//     console.log("iiiiiiii")
+//   }, 5000);
+// }
 
 
-async function cool(){
+// async function cool(){
 
-  let a= await ok()
-  let b= await lollllll()
+//   let a= await ok()
+//   let b= await lollllll()
 
-}
+// }
 
-cool()
-var piop=fetch("https://goweather.herokuapp.com/weather/Ny")
+// cool()
+// var piop=fetch("https://goweather.herokuapp.com/weather/Ny")
 
-piop.then((response)=>{
+// piop.then((response)=>{
   
-console.log(response.status)
-console.log(response.ok)
-console.log(response.headers)
-  return response.json()
+// console.log(response.status)
+// console.log(response.ok)
+// console.log(response.headers)
+//   return response.json()
 
-}).then((value2)=>{
+// }).then((value2)=>{
   
-  console.log( value2)
+//   console.log( value2)
 
-}
-)
+// }
+// )
 
+
+// // let options ={
+// //   method:"POST",
+
+// //   headers:
+// //   {
+// //     "Content-type":"application/json"
+// //   },  
+// //   body:JSON.stringify({
+// //     title:"Krishna",
+// //     body:'Beer',
+// //     UserId:"1",
+// //     price:190,
+// //     BeerName:'kingFisher Ultra Mild ' 
+// //   }),
+// //   }
+
+// // fetch('https://jsonplaceholder.typicode.com/posts',options)
+// // .then(response => response.json())
+// // .then(json => console.log(json))
+
+
+// // better method
+
+
+// const cunc = async()=>{
 
 // let options ={
 //   method:"POST",
-
 //   headers:
 //   {
 //     "Content-type":"application/json"
@@ -447,46 +473,126 @@ console.log(response.headers)
 //     price:190,
 //     BeerName:'kingFisher Ultra Mild ' 
 //   }),
-//   }
-
-// fetch('https://jsonplaceholder.typicode.com/posts',options)
-// .then(response => response.json())
-// .then(json => console.log(json))
 
 
-// better method
+// }
 
+// let pp = await fetch('https://jsonplaceholder.typicode.com/posts',options)
 
-const cunc = async()=>{
+// let response=await pp.json()
+// return response
 
-let options ={
-  method:"POST",
-  headers:
-  {
-    "Content-type":"application/json"
-  },  
-  body:JSON.stringify({
-    title:"Krishna",
-    body:'Beer',
-    UserId:"1",
-    price:190,
-    BeerName:'kingFisher Ultra Mild ' 
-  }),
+// }
 
-
-}
-
-let pp = await fetch('https://jsonplaceholder.typicode.com/posts',options)
-
-let response=await pp.json()
-return response
-
-}
-
-let MainFunc= async()=>{
+// let MainFunc= async()=>{
    
-let o= await cunc()
-console.log(o)
+// let o= await cunc()
+// console.log(o)
+// }
+
+// MainFunc()
+
+
+// let aaaaa=()=>{
+
+//   return new Promise ((resolve,reject)=>{
+//     setTimeout(() => {
+//       resolve(56)
+//     }, 1000);
+//   })
+// }
+
+
+// (async()=>{
+//   let b=await aaaaa()
+//   console.log(b)
+  
+
+//   let c=await aaaaa()
+//   console.log(c)
+
+//   let d=await aaaaa()
+//   console.log(d)
+// })()
+
+// Destructing 
+
+let arr=[3,45,10,9,99,88,77,66]
+
+// let[Arraya,b,c,d]=arr
+
+// console.log(Arraya,b)
+
+let [Arraya, , B, ,...rest]=arr
+console.log(Arraya,B,rest)
+
+let {alkk,lp}={alkk:100,lp:8}
+
+console.log(alkk,lp) 
+
+// spread Operator
+
+let arrToObj=[3,66,88]
+let objects1o={...arrToObj}
+
+console.log(objects1o)
+
+
+function addSum(a11,b11,c11){
+
+  return a11+b11+c11
 }
 
-MainFunc()
+
+console.log(addSum(...arrToObj))
+
+
+
+// react useful 
+
+let obj2={
+  name:"Krishna",
+  Company:"Amazon",
+  address:"Hyderbad"
+}
+
+
+console.log({...obj2})
+console.log({...obj2,name:"jeff bhai"})
+
+
+
+// hoisting 
+
+
+// closure
+// function with its lexical environment
+// bundenled with refencrece
+// In other words, a closure gives you access to an outer function's scope from an inner function.
+
+message ="Global Message "
+
+
+function Hello1(){
+  let message="Good Morning"
+
+
+  {
+  
+    let message="Good AFterNoon"
+    console.log(" running the block"+message)
+  
+  }
+  
+  console.log(message)
+
+  let c=function hello(){
+    
+    console.log("I am using fucntionn"+message)
+
+
+  }
+}
+
+Hello1()
+
